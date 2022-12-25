@@ -1,9 +1,8 @@
 public class IceAmericano {
     public static void main(String[] args) {
-        Solution.solution(5500);
+        solution(5500);
     }
 
-    static class Solution {
         public static int[] solution(int money) {
             int[] answer = new int[2];
 
@@ -12,5 +11,5 @@ public class IceAmericano {
 
             return answer;
         }
-    }
+
 }
