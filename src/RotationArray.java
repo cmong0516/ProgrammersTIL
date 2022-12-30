@@ -28,3 +28,4 @@ public class RotationArray {
         return list.stream().mapToInt(i -> i).toArray();
     }
 }
+
