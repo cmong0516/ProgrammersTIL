@@ -23,3 +23,5 @@ public class FindCompositeNumber {
         return answer;
     }
 }
+
+
