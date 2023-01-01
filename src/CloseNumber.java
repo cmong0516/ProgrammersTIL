@@ -28,3 +28,4 @@ public class CloseNumber {
         return list.get(0);
     }
 }
+
