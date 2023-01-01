@@ -29,3 +29,4 @@ public class CutAndStoringArray {
         return list.toArray(new String[list.size()]);
     }
 }
+
