@@ -34,3 +34,4 @@ public class HideNumberSum2 {
         return answer;
     }
 }
+
