@@ -12,6 +12,9 @@ public class HateEng {
             numbers = numbers.replace(list[i],String.valueOf(i));
         }
 
+
+
         return Long.parseLong(numbers);
     }
 }
+
