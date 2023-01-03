@@ -27,3 +27,4 @@ public class CharacterCoordinate {
         return answer;
     }
 }
+
