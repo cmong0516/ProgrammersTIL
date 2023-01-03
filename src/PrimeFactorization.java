@@ -21,6 +21,8 @@ public class PrimeFactorization {
             }
         }
 
+
+
         return list.stream().mapToInt(i -> i).toArray();
     }
 }
