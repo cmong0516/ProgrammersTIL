@@ -24,3 +24,4 @@ public class MakeTriangle2 {
         return list.size();
     }
 }
+
