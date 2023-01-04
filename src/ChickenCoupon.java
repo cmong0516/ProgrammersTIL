@@ -26,3 +26,4 @@ public class ChickenCoupon {
         return answer;
     }
 }
+
