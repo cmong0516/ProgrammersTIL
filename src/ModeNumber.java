@@ -4,11 +4,13 @@ import java.util.List;
 
 public class ModeNumber {
     public static void main(String[] args) {
-        System.out.println(solution(new int[]{1}));
+        System.out.println(solution(new int[]{1,2,3,3,3,4}));
 
     }
     public static int solution(int[] array) {
         int answer = 0;
+        int temp = 0;
+        int temp1 = 0;
 
         if (array.length == 1) {
             return array[0];
@@ -24,15 +26,23 @@ public class ModeNumber {
             }
         }
 
-        for (int j : cnt) {
-            if (answer == j) {
-                return -1;
+        System.out.println("cnt = " + cnt);
+
+        for (int i = 0; i < 100; i++) {
+            int j = cnt.get(i);
+            if (temp == j) {
+                answer = -1;
             }
 
-            if (answer < j) {
-                answer = array[j];
+            if (temp < j) {
+                temp = j;
+
             }
+
+
         }
+
+
 
         return answer;
     }
