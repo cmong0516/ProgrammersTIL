@@ -1,9 +1,10 @@
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ModeNumber {
     public static void main(String[] args) {
-        solution(new int[]{1, 2, 3, 3, 3, 4});
+        System.out.println(solution(new int[]{1}));
 
     }
     public static int solution(int[] array) {
@@ -13,26 +14,25 @@ public class ModeNumber {
             return array[0];
         }
 
-        int[] cnt = new int[array.length];
+        List<Integer> cnt = new ArrayList<>(Collections.nCopies(1000,0));
 
         for (int i = 1; i <= 1000; i++) {
             for (int arr : array) {
                 if (i == arr) {
-                    cnt[i-1]++;
+                    cnt.set(i-1,cnt.get(i-1) + 1);
                 }
             }
         }
 
-        for (int i = 0; i < cnt.length; i++) {
-            if (answer == cnt[i]) {
+        for (int j : cnt) {
+            if (answer == j) {
                 return -1;
             }
 
-            if (answer < cnt[i]) {
-                answer = array[cnt[i]];
+            if (answer < j) {
+                answer = array[j];
             }
         }
-
 
         return answer;
     }
