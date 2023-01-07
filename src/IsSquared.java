@@ -1,5 +1,5 @@
 public class IsSquared {
-    public static void main(String[] args) {
+    public static void main(String args) {
         solution(144);
     }
     public static int solution(int n) {
