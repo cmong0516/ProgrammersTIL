@@ -43,3 +43,4 @@ public class FountainAdd {
         return getGcd(b, a % b);
     }
 }
+
