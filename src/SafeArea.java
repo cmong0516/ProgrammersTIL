@@ -16,7 +16,7 @@ public class SafeArea {
                 // 40 41 42 43 44
 
                 if (board[i][j] != 1) {
-                    if (i == 0 && board[i][j - 1] != 1 && board[i][j + 1] != 1 && board[i + 1][j - 1] != 1
+                    if (board[i][j - 1] != 1 && board[i][j + 1] != 1 && board[i + 1][j - 1] != 1
                             && board[i + 1][j] != 1 && board[i + 1][j + 1] != 1) {
                         answer++;
                     }
