@@ -26,29 +26,32 @@ public class SafeArea {
                     continue;
                 }
 
-                System.out.println("board[i][j] = " + board[i][j]);
+                adjacent(i, j, 1, copyBoard);
+            }
+        }
+
+        for (int[] ints : copyBoard) {
+            for (int anInt : ints) {
+                if (anInt == 0) {
+                    answer++;
+                }
             }
         }
 
         return answer;
     }
 
-    static void dfs(int[][] board, boolean[][] visited, int x, int y) {
-        int[] dx = {0, 0, -1, 1};
-        int[] dy = {-1, 1, 0, 0};
-        boolean[][] temp = visited.clone();
+    static void adjacent(int row, int col, int range, int[][] board) {
+        for (int r = row - 1; r <= row + 1; r++) {
+            if (r < 0 || r >= board.length) {
+                continue;
+            }
+            for (int c = col - 1; c <= col + 1; c++) {
+                if (c < 0 || c >= board[0].length) {
+                    continue;
+                }
 
-        if (x == -1 || y == -1) {
-            return;
-        }
-        visited[x][y] = true;
-
-        for (int i = 0; i < 4; i++) {
-            int nx = x + dx[i];
-            int ny = y + dy[i];
-            if (!visited[nx][ny] && board[nx][ny] == 0) {
-                dfs(board, visited, nx, ny);
-                visited[nx][ny] = false;
+                board[r][c] = 1;
             }
         }
     }
