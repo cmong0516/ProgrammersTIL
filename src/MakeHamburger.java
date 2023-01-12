@@ -1,6 +1,4 @@
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Stack;
 
 public class MakeHamburger {
     public static void main(String[] args) {
@@ -10,27 +8,20 @@ public class MakeHamburger {
     public static int solution(int[] ingredient) {
         int answer = 0;
 
-        List<Integer> list = Arrays.stream(ingredient).boxed().collect(Collectors.toList());
+        Stack<Integer> hamberger = new Stack<>();
 
-        System.out.println("list = " + list);
-
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i) == 1) {
-                List<Integer> subList = list.subList(i + 1, list.size());
-                System.out.println("subList = " + subList);
-                int nextBread = subList.indexOf(1) + i + 1;
-                System.out.println("Bread = " + i);
-                System.out.println("nextBread = " + nextBread);
-                System.out.println();
-
-                if (list.subList(i, nextBread).contains(2) && list.subList(i, nextBread).contains(3) && list.subList(i, nextBread).indexOf(2) < list.subList(i, nextBread).indexOf(3)) {
-                    answer++;
-                    i++;
-                }
+        for (int i : ingredient) {
+            if (i == 1 && hamberger.size() >= 3 && hamberger.lastIndexOf(3) == hamberger.size() - 1
+                    && hamberger.lastIndexOf(2) == hamberger.size() - 2
+                    && hamberger.lastIndexOf(1) == hamberger.size() - 3) {
+                answer++;
+                hamberger.pop();
+                hamberger.pop();
+                hamberger.pop();
+            } else {
+                hamberger.add(i);
             }
         }
-
-        System.out.println("answer = " + answer);
 
         return answer;
     }
