@@ -1,26 +1,32 @@
+import java.util.regex.Pattern;
+
 public class Babbling2 {
     public static void main(String[] args) {
-        solution(new String[]{"woayao"});
+        solution(new String[]{"ayaye", "uuu", "yeye", "yemawoo", "ayaayaa"});
     }
 
     public static int solution(String[] babbling) {
-        int answer = 0;
+        Pattern pt = Pattern.compile("^[0-9]+$");
+
+        int answer = babbling.length;
 
         String[] can = new String[]{"aya", "ye", "woo", "ma"};
-        int a = 0;
+
         for (String s : babbling) {
-            for (String s1 : can) {
-                s = s.replaceFirst(s1,"1");
-                System.out.println("s = " + s);
-                if (s.startsWith(s1)) {
+            String s1 = s.replaceAll(can[0], "0").replaceAll(can[1], "1").replaceAll(can[2], "2")
+                    .replaceAll(can[3], "3");
+
+            System.out.println("s1 = " + s1);
+
+            String[] split = s1.split("");
+
+            for (String sp : split) {
+
+                if (s1.contains("00") || s1.contains("11") || s1.contains("22") || s1.contains("33") || !pt.matcher(sp).matches()) {
+                    answer--;
                     break;
                 }
             }
-
-            if (s.replaceAll("1","").equals("")) {
-                answer++;
-            }
-            System.out.println();
 
         }
 
@@ -28,6 +34,7 @@ public class Babbling2 {
 
         return answer;
     }
+
 }
 
 // 1 11 14 16 17
