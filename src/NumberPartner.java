@@ -5,7 +5,7 @@ import java.util.List;
 
 public class NumberPartner {
     public static void main(String[] args) {
-        solution("12321","42531");
+        solution("12321", "42531");
     }
 
     public static String solution(String X, String Y) {
@@ -14,10 +14,15 @@ public class NumberPartner {
         List<String> xList = Arrays.asList(X.split(""));
         List<String> yList = Arrays.asList(Y.split(""));
         List<String> list = new ArrayList<>();
-        for (String s : xList) {
-            if (yList.contains(s) && Math.min(Collections.frequency(xList, s), Collections.frequency(yList, s))
-                    > Collections.frequency(list, s)) {
-                list.add(s);
+
+        for (int i = 0; i < 10; i++) {
+            int min = Math.min(Collections.frequency(xList, String.valueOf(i)),
+                    Collections.frequency(yList, String.valueOf(i)));
+            if (min != 0) {
+                for (int j = 0; j < min; j++) {
+                    list.add(String.valueOf(i));
+                }
+
             }
         }
 
@@ -41,3 +46,4 @@ public class NumberPartner {
 }
 
 // 11 ~ 15 timeOver
+// use StringBuilder
