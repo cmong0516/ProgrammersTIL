@@ -23,5 +23,3 @@ public class Coke {
         return answer;
     }
 }
-
-// 9 ,14
