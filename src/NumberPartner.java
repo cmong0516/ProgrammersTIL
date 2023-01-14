@@ -9,32 +9,17 @@ public class NumberPartner {
     }
 
     public static String solution(String X, String Y) {
-        String answer = "";
+        StringBuilder sb = new StringBuilder();
 
-        String[] splitX = X.split("");
-        String[] splitY = Y.split("");
-
-        List<String> xList = Arrays.asList(splitX);
-        List<String> yList = Arrays.asList(splitY);
-        List<Integer> list = new ArrayList<>();
-
-        System.out.println("xList = " + xList);
-        System.out.println("yList = " + yList);
-
+        List<String> xList = Arrays.asList(X.split(""));
+        List<String> yList = Arrays.asList(Y.split(""));
+        List<String> list = new ArrayList<>();
         for (String s : xList) {
-            System.out.println("yList.contains(s) = " + yList.contains(s));
-            long xListS = Collections.frequency(xList, s);
-            long yListS = Collections.frequency(yList, s);
-            long listS = Collections.frequency(list, Integer.parseInt(s));
-
-            System.out.println("Math.min(xListS,yListS) = " + Math.min(xListS, yListS));
-            System.out.println("listS = " + listS);
-            if (yList.contains(s) && Math.min(xListS, yListS) > listS) {
-                list.add(Integer.parseInt(s));
+            if (yList.contains(s) && Math.min(Collections.frequency(xList, s), Collections.frequency(yList, s))
+                    > Collections.frequency(list, s)) {
+                list.add(s);
             }
         }
-
-        System.out.println("list = " + list);
 
         if (list.size() == 0) {
             return "-1";
@@ -43,14 +28,16 @@ public class NumberPartner {
         Collections.sort(list);
         Collections.reverse(list);
 
-        for (Integer integer : list) {
-            answer += String.valueOf(integer);
+        for (String s : list) {
+            sb.append(s);
         }
 
-        answer = String.valueOf(Integer.parseInt(answer));
+        if (String.valueOf(sb).startsWith("0")) {
+            return "0";
+        }
 
-        return answer;
+        return String.valueOf(sb);
     }
 }
 
-// 6~ 15
+// 11 ~ 15 timeOver
