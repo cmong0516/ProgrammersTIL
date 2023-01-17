@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class MBTI {
     public static void main(String[] args) {
-        solution(new String[]{"TR","RT","TR"}, new int[]{7,1,3});
+        solution(new String[]{"AN", "CF", "MJ", "RT", "NA"}, new int[]{5,3,2,7,5});
 
     }
 
@@ -21,30 +21,25 @@ public class MBTI {
             map.put(s, 0);
         }
 
-        for (int i = 0; i < choices.length; i++) {
-            if (choices[i] == 1) {
-                map.put(survey[i].split("")[0], 3);
+        System.out.println("map = " + map);
+
+        for (int i = 0; i < survey.length; i++) {
+            String[] split = survey[i].split("");
+            Integer integer1 = map.get(split[0]);
+            Integer integer2 = map.get(split[1]);
+            if (choices[i] > 4) {
+                map.put(split[1], integer2 + Math.abs(4-choices[i]));
             }
-            if (choices[i] == 2) {
-                map.put(survey[i].split("")[0], 2);
-            }
-            if (choices[i] == 3) {
-                map.put(survey[i].split("")[0], 1);
-            }
-            if (choices[i] == 5) {
-                map.put(survey[i].split("")[1], 1);
-            }
-            if (choices[i] == 6) {
-                map.put(survey[i].split("")[1], 2);
-            }
-            if (choices[i] == 7) {
-                map.put(survey[i].split("")[1], 3);
+            if (choices[i] < 4) {
+                map.put(split[0], integer1 + Math.abs(4-choices[i]));
             }
         }
 
+        System.out.println("map = " + map);
 
 
-        for (int i = 1; i < kind.size(); i+=2) {
+
+        for (int i = 1; i < map.size(); i+=2) {
             if (map.get(kind.get(i - 1)) >= map.get(kind.get(i))) {
                 answer += kind.get(i - 1);
             }
@@ -52,6 +47,8 @@ public class MBTI {
                 answer += kind.get(i);
             }
         }
+
+        System.out.println("answer = " + answer);
 
         return answer;
     }
