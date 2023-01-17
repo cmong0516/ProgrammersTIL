@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Stack;
 import java.util.stream.Collectors;
 
 public class DeliveryAndCollect {
@@ -10,25 +11,76 @@ public class DeliveryAndCollect {
     }
 
     public static long solution(int cap, int n, int[] deliveries, int[] pickups) {
-        long answer = -1;
+        long answer = 0;
 
-        List<Integer> deliveriesList = Arrays.stream(deliveries).boxed().collect(Collectors.toList());
-        List<Integer> pickupsList = Arrays.stream(pickups).boxed().collect(Collectors.toList());
-
-        Collections.reverse(deliveriesList);
-        Collections.reverse(pickupsList);
-
-        System.out.println("deliveriesList = " + deliveriesList);
-        System.out.println("pickupsList = " + pickupsList);
-
-        int total = 0;
-
-        for (int i = 0; i < deliveriesList.size(); i++) {
-            total += deliveriesList.get(i);
-            if (total == cap) {
-                System.out.println("i = " + i);
+        Stack<Integer> dStack = new Stack<>();
+        Stack<Integer> pStack = new Stack<>();
+        for (int i = 0; i < n; i++) {
+            if (deliveries[i] > 0) {
+                dStack.add(i);
+            }
+            if (pickups[i] > 0) {
+                pStack.add(i);
             }
         }
+
+        while (!dStack.empty() && !pStack.empty()) {
+            answer += Math.max((dStack.peek() + 1) * 2, (pStack.peek() + 1) * 2);
+
+            int box = 0;
+            while (!dStack.empty() && box <= cap) {
+                if (deliveries[dStack.peek()] + box <= cap) {
+                    box += deliveries[dStack.peek()];
+                } else {
+                    deliveries[dStack.peek()] -= (cap - box);
+                    break;
+                }
+                dStack.pop();
+            }
+
+            box = 0;
+            while (!pStack.empty() && box <= cap) {
+                if (pickups[pStack.peek()] + box <= cap) {
+                    box += pickups[pStack.peek()];
+                } else {
+                    pickups[pStack.peek()] -= (cap - box);
+                    break;
+                }
+                pStack.pop();
+            }
+        }
+
+        while (!dStack.empty()) {
+            answer += (dStack.peek() + 1) * 2;
+
+            int box = 0;
+            while (!dStack.empty() && box <= cap) {
+                if (deliveries[dStack.peek()] + box <= cap) {
+                    box += deliveries[dStack.peek()];
+                } else {
+                    deliveries[dStack.peek()] -= (cap - box);
+                    break;
+                }
+                dStack.pop();
+            }
+        }
+
+        while (!pStack.empty()) {
+            answer += (pStack.peek() + 1) * 2;
+
+            int box = 0;
+            while (!pStack.empty() && box <= cap) {
+                if (pickups[pStack.peek()] + box <= cap) {
+                    box += pickups[pStack.peek()];
+                } else {
+                    pickups[pStack.peek()] -= (cap - box);
+                    break;
+                }
+                pStack.pop();
+            }
+        }
+
+        System.out.println("answer = " + answer);
 
         return answer;
     }
