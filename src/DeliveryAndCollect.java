@@ -1,9 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 import java.util.Stack;
-import java.util.stream.Collectors;
 
 public class DeliveryAndCollect {
     public static void main(String[] args) {
@@ -23,6 +18,7 @@ public class DeliveryAndCollect {
                 pStack.add(i);
             }
         }
+
 
         while (!dStack.empty() && !pStack.empty()) {
             answer += Math.max((dStack.peek() + 1) * 2, (pStack.peek() + 1) * 2);
