@@ -5,25 +5,26 @@ public class TileN3 {
         solution(4);
     }
 
-    public static long solution(int n) {
-        long answer = 0;
+    public static int solution(int n) {
+        int answer = 0;
+        int mod = 1000000007;
 
-        // 가로 2 세로 1
-        // 세로 3 가로 n
+        int[] dp = new int[n + 1];
 
-        // 1 0 3 0 11 0 41 0
+        dp[1] = 2;
+        dp[2] = 3;
 
-        long[] arr = new long[5001];
-
-        arr[0] = 1;
-        arr[2] = 3;
-        arr[4] = 11;
-
-        for (int i = 4; i <= n; i+=2) {
-            arr[i] = ((arr[i - 2] * 4) - arr[i - 4]) % 1000000007;
+        for (int i = 3; i <= n; i++) {
+            if (i % 2 == 0) {
+                dp[i] = dp[i - 1] % mod + dp[i - 2] % mod;
+            }
+            if (i % 2 != 0) {
+                dp[i] = dp[i - 1]*2 % mod + dp[i - 2] % mod;
+            }
+            dp[i] = dp[i] %mod;
         }
 
-        answer = arr[n];
+        answer = dp[n];
 
         return answer;
     }
