@@ -15,5 +15,3 @@ public class IsSquared {
         return answer;
     }
 }
-
-
