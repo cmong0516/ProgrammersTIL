@@ -6,17 +6,24 @@ public class NumberBlock {
     }
 
     public static int[] solution(long begin, long end) {
-        int[] arr = new int[(int)end];
+        int first = (int) begin;
+        int last = (int) end;
 
-        for (int i = (int)begin; i <= (int)end; i++) {
-            for (int j = 1; j < i; j++) {
-                if (i % j == 0) {
-                    arr[i-1] = j;
+        int[] arr = new int[last - first + 1];
+
+        for (int i = first; i < last + 1; i++) {
+            arr[i - first] = 1;
+
+            for (int j = 2; j <= Math.floor(Math.sqrt(i)); j++) {
+                if (i % j == 0 && i / j <= 10000000) {
+                    arr[i - first] = i / j;
+                    break;
                 }
             }
+            if (first == 1) {
+                arr[0] = 0;
+            }
         }
-
-
 
         return arr;
     }
