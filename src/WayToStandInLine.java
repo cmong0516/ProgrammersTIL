@@ -8,7 +8,6 @@ public class WayToStandInLine {
 
     public static int[] solution(int n, long k) {
 
-
         int[] answer = new int[n];
 
         List<Integer> people = new ArrayList<>();
