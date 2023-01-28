@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class TowerOfHanoi {
     static ArrayList<int[]> seq;
@@ -15,6 +16,7 @@ public class TowerOfHanoi {
 
         for (int i = 0; i < seq.size(); i++) {
             int[] cmd = seq.get(i);
+            System.out.println("Arrays.toString(cmd) = " + Arrays.toString(cmd));
             answer[i][0] = cmd[0];
             answer[i][1] = cmd[1];
         }
@@ -24,6 +26,12 @@ public class TowerOfHanoi {
 
     static void hanoi(int n, int from, int to, int via) {
         int[] move = {from, to};
+        System.out.println(Arrays.toString(move));
+        System.out.println("n = " + n);
+        System.out.println("from = " + from);
+        System.out.println("to = " + to);
+        System.out.println("via = " + via);
+        System.out.println();
 
         if (n == 1) {
             seq.add(move);
@@ -32,6 +40,9 @@ public class TowerOfHanoi {
             hanoi(n - 1, from, via, to);
             seq.add(move);
             hanoi(n - 1, via, to, from);
+        }
+        for (int[] ints : seq) {
+            System.out.println("Arrays.toString(ints) = " + Arrays.toString(ints));
         }
     }
 }
