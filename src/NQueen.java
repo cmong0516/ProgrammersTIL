@@ -40,3 +40,4 @@ public class NQueen {
         return true;
     }
 }
+
