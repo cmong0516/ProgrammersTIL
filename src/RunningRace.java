@@ -1,24 +1,36 @@
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class RunningRace {
 
     public static void main(String[] args) {
         String[] players = {"mumu", "soe", "poe", "kai", "mine"};
-        String[] callings ={"kai", "kai", "mine", "mine"};
-        solution(players,callings);
+        String[] callings = {"kai", "kai", "mine", "mine"};
+        solution(players, callings);
     }
 
     public static String[] solution(String[] players, String[] callings) {
 
-        List<String> playerList = new java.util.ArrayList<>(List.of(players));
+        Map<String, Integer> rank = new HashMap<>();
 
-        for (String calling : callings) {
-            int i = playerList.indexOf(calling);
-            String temp = playerList.get(i-1);
-            playerList.set(i-1,calling);
-            playerList.set(i,temp);
+        int i = 0;
+
+        for (String player : players) {
+            rank.put(player,i);
+            i++;
         }
 
-        return playerList.toArray(new String[playerList.size()]);
+        for (String calling : callings) {
+            Integer currentRank = rank.get(calling);
+            String frontPlayer = players[currentRank - 1];
+
+            players[currentRank -1] = calling;
+            players[currentRank] = frontPlayer;
+
+            rank.put(calling,currentRank-1);
+            rank.put(frontPlayer,currentRank);
+        }
+
+        return players;
     }
 }
