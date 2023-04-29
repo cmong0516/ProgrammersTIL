@@ -26,3 +26,4 @@ public class ContinuousNumberOfSums {
         return set.size();
     }
 }
+
