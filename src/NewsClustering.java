@@ -1,12 +1,14 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
 public class NewsClustering {
     public static void main(String[] args) {
-        solution("E=M*C^2","e=m*c^2");
+        solution("aa1+aa2","AAAA12");
     }
 
     public static int solution(String str1, String str2) {
@@ -34,13 +36,14 @@ public class NewsClustering {
 
     public static List<String> removeSpecialCharacters(List<String> strList) {
         String pattern = "[^ㄱ-ㅎㅏ-ㅣ가-힣a-zA-Z0-9]";
+        Pattern num = Pattern.compile("^[0-9]+$");
 
         List<String> result = new ArrayList<>();
 
         for (String s : strList) {
             String[] split = s.split("");
 
-            if (!Pattern.matches(pattern, split[0]) && !Pattern.matches(pattern, split[1]) && !split[0].equals(" ") && !split[1].equals(" ")) {
+            if (!Pattern.matches(pattern, split[0]) && !Pattern.matches(pattern, split[1]) && !split[0].equals(" ") && !split[1].equals(" ") && !num.matcher(split[0]).matches()&& !num.matcher(split[1]).matches()) {
                 result.add(s.toLowerCase());
             }
         }
@@ -51,26 +54,45 @@ public class NewsClustering {
     }
 
     public static int count(List<String> list1, List<String> list2) {
+        
+        double uinion = 0;
+        double intersection = 0;
 
-        Set<String> set = new HashSet<>(list1);
+        Map<String, Integer> list1Map = new HashMap<>();
+        Map<String, Integer> list2Map = new HashMap<>();
+        Set<String> allKeySet = new HashSet<>();
 
-        set.addAll(list2);
+        for (String s : list1) {
+            list1Map.put(s, list1Map.getOrDefault(s, 0) + 1);
+            allKeySet.add(s);
+        }
 
-        System.out.println("set = " + set);
+        for (String s : list2) {
+            list2Map.put(s, list2Map.getOrDefault(s, 0) + 1);
+            allKeySet.add(s);
+        }
 
-        double union = set.size();
+        System.out.println("list1Map = " + list1Map);
+        System.out.println("list2Map = " + list2Map);
+        System.out.println("allKeySet = " + allKeySet);
 
-        list1.retainAll(list2);
+        for (String s : allKeySet) {
+            intersection += Math.min(list1Map.getOrDefault(s, 0), list2Map.getOrDefault(s, 0));
+            uinion += Math.max(list1Map.getOrDefault(s, 0), list2Map.getOrDefault(s, 0));
+        }
 
-        System.out.println("list1 = " + list1);
-
-        double intersection = list1.size();
-
-        System.out.println("union = " + union);
+        System.out.println("uinion = " + uinion);
         System.out.println("intersection = " + intersection);
 
-        System.out.println("intersection/union) * 65536 = " + (intersection / union) * 65536.00);
+        if (uinion == 0 || intersection == 0) {
+            return 65536;
+        }
 
-        return (int)((Math.floor((intersection/union) * 65536)));
+        double answer = intersection / uinion;
+
+        
+        return (int) (answer * 65536);
     }
 }
+
+// 3 5 8 9 10
