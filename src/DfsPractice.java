@@ -8,7 +8,7 @@ public class DfsPractice {
     static void dfs(int nodeIndex) {
         visited[nodeIndex] = true;
 
-        System.out.println(nodeIndex + " -> " );
+        System.out.println(nodeIndex);
 
         for (int node : graph[nodeIndex]) {
             if (!visited[node]) {
