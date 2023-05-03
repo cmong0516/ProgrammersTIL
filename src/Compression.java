@@ -7,26 +7,27 @@ public class Compression {
     }
 
     public static int[] solution(String msg) {
-        int[] answer = {};
+        List<Integer> answer = new ArrayList<>();
 
         List<String> aToZList = makeAToZList();
-
-        System.out.println("aToZList = " + aToZList);
 
         // k ka kak kaka kakao
 
         for (int i = 0; i < msg.length(); i++) {
-            for (int j = i; j < msg.length() + 1; j++) {
+            for (int j = aToZList.size()-1; j >= 0; j--) {
+                if (msg.substring(i).startsWith(aToZList.get(j))) {
+                    i+= aToZList.get(j).length()-1;
+                    answer.add(j+1);
 
-                if (!aToZList.contains(msg.substring(i, j))) {
-                    aToZList.add(msg.substring(i, j));
-                    j++;
+                    if (i + 1 < msg.length()) {
+                        aToZList.add(aToZList.get(j) + msg.charAt(i + 1));
+                    }
+                    break;
                 }
-                System.out.println("aToZList = " + aToZList);
             }
         }
 
-        return answer;
+        return answer.stream().mapToInt(i -> i).toArray();
     }
 
     public static List<String> makeAToZList() {
