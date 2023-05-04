@@ -1,23 +1,31 @@
 public class BinaryNGame {
     public static void main(String[] args) {
-        solution(2, 4, 2, 1);
+        solution(16, 16, 2, 2);
     }
 
     public static String solution(int n, int t, int m, int p) {
         String answer = "";
 
-        StringBuffer sb = new StringBuffer();
+        String s = toBinary(n,t*p);
 
-        for (int i = 0; i < 100; i++) {
-            sb.append(Integer.toBinaryString(i));
+        System.out.println("s = " + s);
+
+        for (int i = p-1; i < t*m; i+=m) {
+            answer += s.charAt(i);
         }
 
-        System.out.println("sb = " + sb);
+        System.out.println("answer = " + answer);
 
-        for (int i = 4; i < sb.length(); i+=2) {
-            System.out.println("sb.charAt(i) = " + sb.charAt(i));
+        return answer.toUpperCase();
+    }
+
+    public static String toBinary(int n,int m) {
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i <m; i++) {
+            sb.append(Integer.toString(i, n));
         }
 
-        return answer;
+        return String.valueOf(sb);
     }
 }
