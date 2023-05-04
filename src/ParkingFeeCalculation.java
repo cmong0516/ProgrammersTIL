@@ -100,4 +100,3 @@ public class ParkingFeeCalculation {
         return answer;
     }
 }
-// 1 3 4 7 8 10
