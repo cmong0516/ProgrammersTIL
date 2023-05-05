@@ -3,7 +3,8 @@ import java.util.HashSet;
 
 public class VisitFirstArea {
     public static void main(String[] args) {
-        solution("UDDUUD");
+        int u = solution("ULURRDLLU");
+        System.out.println(u);
     }
 
     public static int solution(String dirs) {
@@ -43,10 +44,10 @@ public class VisitFirstArea {
             }
             System.out.println("sb = " + sb);
 
+            String[] split = sb.toString().split(",");
 
+            if (split.length == 2) {
 
-            if (sb.length() > 4) {
-                String[] split = sb.toString().split(",");
                 String reverse = split[1] + "," + split[0];
                 if (!set.contains(reverse)) {
                     set.add(sb.toString());
