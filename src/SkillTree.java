@@ -6,22 +6,20 @@ public class SkillTree {
     public static int solution(String skill, String[] skill_trees) {
         int answer = 0;
 
-        char[] skillTree = skill.toCharArray();
-
         for (String skill_tree : skill_trees) {
-            boolean check = true;
-            for (int i = 0; i < skillTree.length-1; i++) {
-                if (skill_tree.indexOf(skillTree[i]) > skill_tree.indexOf(skillTree[i + 1])) {
-                    check = false;
-                    break;
+            StringBuilder sb = new StringBuilder();
+            System.out.println("skill_tree = " + skill_tree);
+            for (int i = 0; i < skill_tree.length(); i++) {
+                if (skill.contains(skill_tree.charAt(i) + "")) {
+                    sb.append(skill_tree.charAt(i));
                 }
             }
-
-            if (check == true) {
+            if (skill.indexOf(sb.toString()) == 0) {
                 answer++;
             }
         }
 
+        System.out.println("answer = " + answer);
         return answer;
     }
 }
