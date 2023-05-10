@@ -1,66 +1,97 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 
 public class FileNameSort {
     public static void main(String[] args) {
-        solution(new String[]{"img12.png", "img10.png", "img02.png", "img1.png", "IMG01.GIF", "img2.JPG"});
+        solution(new String[]{"F-5 Freedom Fighter", "B-50 Superfortress", "A-10 Thunderbolt II", "F-14 Tomcat"});
     }
 
     public static String[] solution(String[] files) {
-        String[] answer = {};
-        int[] startNumIndexArr = new int[files.length];
-        int[] lastNumIndexArr = new int[files.length];
-        int[] numberArr = new int[files.length];
+        String[] answer = new String[files.length];
 
-        System.out.println("files = " + Arrays.toString(files));
-
-        int j = 0;
+        List<MyFile> myFileList = new ArrayList<>();
 
         for (String file : files) {
-            int startNumIndex = -1;
-            int lastNumIndex = 0;
-            for (int i = 0; i < file.length(); i++) {
-                if (Character.isDigit(file.charAt(i)) && startNumIndex == -1) {
-                    startNumIndex = i;
-                    lastNumIndex = i-1;
-                }
-                if (Character.isDigit(file.charAt(i)) && startNumIndex != -1) {
-                    lastNumIndex++;
-                }
-                if (!Character.isDigit(file.charAt(i)) && startNumIndex != -1) {
-                    break;
-                }
-            }
-            startNumIndexArr[j] = startNumIndex;
-            lastNumIndexArr[j] = lastNumIndex;
-            j++;
+            myFileList.add(new MyFile(file));
         }
 
-        System.out.println("startNumIndexArr = " + Arrays.toString(startNumIndexArr));
-        System.out.println("lastNumIndexArr = " + Arrays.toString(lastNumIndexArr));
+        System.out.println("myFileList = " + myFileList);
 
-        System.out.println("files = " + Arrays.toString(files));
-
-        for (int i = 0; i < files.length; i++) {
-            if (startNumIndexArr[i] == lastNumIndexArr[i]) {
-                numberArr[i] = Integer.parseInt(String.valueOf(files[i].charAt(startNumIndexArr[i])));
-            } else {
-                numberArr[i] = Integer.parseInt(files[i].substring(
-                        startNumIndexArr[i], lastNumIndexArr[i]+1));
-            }
-        }
-
-        System.out.println("numberArr = " + Arrays.toString(numberArr));
-
-        Arrays.sort(files, new Comparator<String>() {
+        myFileList.sort(new Comparator<MyFile>() {
             @Override
-            public int compare(String o1, String o2) {
-                return 0;
+            public int compare(MyFile o1, MyFile o2) {
+                if (!o1.getHead().equalsIgnoreCase(o2.getHead())) {
+                    return o1.getHead().compareToIgnoreCase(o2.getHead());
+                }
+                return Integer.compare(Integer.parseInt(o1.getNumber()),Integer.parseInt(o2.getNumber()));
             }
-
         });
+
+        int index = 0;
+
+        for (MyFile myFile : myFileList) {
+            answer[index] = myFile.getHead() + myFile.getNumber() + myFile.getTail();
+            index++;
+        }
+
+        System.out.println("answer = " + Arrays.toString(answer));
 
         return answer;
     }
+
+    static class MyFile {
+        private String head;
+        private String number;
+        private String tail;
+
+        public MyFile(String fileName) {
+            int i = 0;
+
+            StringBuilder headStringBuilder = new StringBuilder();
+            StringBuilder numberStringBuilder = new StringBuilder();
+            StringBuilder tailStringBuilder = new StringBuilder();
+
+            while (!Character.isDigit(fileName.charAt(i))) {
+                headStringBuilder.append(fileName.charAt(i));
+                i++;
+            }
+
+            this.head = String.valueOf(headStringBuilder);
+
+            System.out.println("head = " + head);
+
+            i = 0;
+            while (i < fileName.length()) {
+                if (Character.isDigit(fileName.charAt(i))) {
+                    numberStringBuilder.append(fileName.charAt(i));
+                } else {
+                    tailStringBuilder.append(fileName.charAt(i));
+                }
+
+                i++;
+            }
+
+            this.number = String.valueOf(numberStringBuilder);
+            this.tail = String.valueOf(tailStringBuilder).replaceAll(head,"");
+
+            System.out.println("number = " + number);
+            System.out.println("tail = " + tail);
+        }
+
+        public String getHead() {
+            return head;
+        }
+
+        public String getNumber() {
+            return number;
+        }
+
+        public String getTail() {
+            return tail;
+        }
+    }
+
 
 }
