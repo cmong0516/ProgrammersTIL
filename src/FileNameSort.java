@@ -25,7 +25,7 @@ public class FileNameSort {
                 if (!o1.getHead().equalsIgnoreCase(o2.getHead())) {
                     return o1.getHead().compareToIgnoreCase(o2.getHead());
                 }
-                return Integer.compare(Integer.parseInt(o1.getNumber()),Integer.parseInt(o2.getNumber()));
+                return Integer.compare(Integer.parseInt(o1.getNumber()), Integer.parseInt(o2.getNumber()));
             }
         });
 
@@ -51,7 +51,8 @@ public class FileNameSort {
 
             StringBuilder headStringBuilder = new StringBuilder();
             StringBuilder numberStringBuilder = new StringBuilder();
-            StringBuilder tailStringBuilder = new StringBuilder();
+
+            System.out.println("fileName = " + fileName);
 
             while (!Character.isDigit(fileName.charAt(i))) {
                 headStringBuilder.append(fileName.charAt(i));
@@ -62,19 +63,22 @@ public class FileNameSort {
 
             System.out.println("head = " + head);
 
-            i = 0;
+            System.out.println("i = " + i);
+
             while (i < fileName.length()) {
                 if (Character.isDigit(fileName.charAt(i))) {
                     numberStringBuilder.append(fileName.charAt(i));
                 } else {
-                    tailStringBuilder.append(fileName.charAt(i));
+                    break;
                 }
 
                 i++;
             }
 
+            System.out.println("i = " + i);
+
             this.number = String.valueOf(numberStringBuilder);
-            this.tail = String.valueOf(tailStringBuilder).replaceAll(head,"");
+            this.tail = fileName.substring(i, fileName.length());
 
             System.out.println("number = " + number);
             System.out.println("tail = " + tail);
@@ -92,6 +96,6 @@ public class FileNameSort {
             return tail;
         }
     }
-
-
 }
+
+// 3 4 5 12 13 14 15 19 20
