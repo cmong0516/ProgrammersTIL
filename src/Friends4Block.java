@@ -1,43 +1,31 @@
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Friends4Block {
 
-    static boolean[][] v;
+    static char[][] map;
+    static int answer = 0;
 
     public static void main(String[] args) {
         solution(4, 5, new String[]{"CCBDE", "AAADE", "AAABF", "CCBBF"});
     }
 
     public static int solution(int m, int n, String[] board) {
-        int answer = 0;
-
-        char[][] charBoard = makeCharBoard(board);
 
 
+         map = makeCharMap(m, n, board);
 
-        boolean flag = true;
+        for (char[] chars : map) {
+            System.out.println("chars = " + Arrays.toString(chars));
+        }
+        System.out.println();
 
-        while (flag) {
-            v = new boolean[m][n];
-            flag = false;
-            for (int i = 0; i < m - 1; i++) {
-                for (int j = 0; j < n - 1; j++) {
-                    if (charBoard[i][j] == '#') {
-                        continue;
-                    }
-
-                    if (check(i, j, charBoard)) {
-                        v[i][j] = true;
-                        v[i + 1][j] = true;
-                        v[i][j + 1] = true;
-                        v[i + 1][j + 1] = true;
-                        flag = true;
-                    }
-                }
+        while (updateBlocks(m, n)) {
+            for (char[] chars : map) {
+                System.out.println("chars = " + Arrays.toString(chars));
             }
-            answer += removeBlock(m, n, charBoard);
-            v = new boolean[m][n];
+            System.out.println();
         }
 
         System.out.println("answer = " + answer);
@@ -45,55 +33,73 @@ public class Friends4Block {
         return answer;
     }
 
-    public static int removeBlock(int m, int n, char[][] board) {
+    private static boolean updateBlocks(int m, int n) {
+        boolean[][] visit = new boolean[m][n];
         int cnt = 0;
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if (v[i][j]) {
-                    board[i][j] = '.';
+
+        for (int i = 0; i < m - 1; i++) {
+            for (int j = 0; j < n - 1; j++) {
+
+                if (map[i][j] == '0') {
+                    continue;
+                }
+                if (check(i, j)) {
+                    visit[i][j] = true;
+                    visit[i][j+1] = true;
+                    visit[i+1][j] = true;
+                    visit[i+1][j+1] = true;
                 }
             }
         }
+
+        for (boolean[] booleans : visit) {
+            System.out.println("booleans = " + Arrays.toString(booleans));
+        }
+        System.out.println();
 
         for (int i = 0; i < n; i++) {
-            Queue<Character> queue = new LinkedList<>();
+            List<Character> temp = new ArrayList<>();
+            System.out.println("i = " + i);
+            System.out.println();
             for (int j = m-1; j >= 0; j--) {
-                if (board[i][j] == '.') {
+                System.out.println("j = " + j);
+                System.out.println();
+                if (visit[j][i]) {
                     cnt++;
+                    continue;
+                }
+                temp.add(map[j][i]);
+            }
+
+            System.out.println("temp = " + temp);
+
+            for (int j = m-1,k=0; j >= 0 ; j--,k++) {
+                if (k < temp.size()) {
+                    map[j][i] = temp.get(k);
                 } else {
-                    queue.add(board[i][j]);
+                    map[j][i] = '0';
                 }
             }
-            int index = m-1;
-
-            while (!queue.isEmpty()) {
-                board[index--][i] = queue.poll();
-            }
-
-            for (int j = index; j >= 0 ; j--) {
-                board[i][j] = '#';
-            }
-
         }
 
-        return cnt;
+        answer += cnt;
+
+        return cnt > 0;
     }
 
-    public static char[][] makeCharBoard(String[] board) {
-        char[][] result = new char[board.length][board[0].length()];
+    public static char[][] makeCharMap(int m, int n, String[] board) {
+        char[][] map = new char[m][n];
 
-        for (int i = 0; i < board.length; i++) {
-            result[i] = board[i].toCharArray();
+        for (int i = 0; i < m; i++) {
+            map[i] = board[i].toCharArray();
         }
 
-        return result;
+        return map;
     }
 
-    public static boolean check(int a, int b, char[][] board) {
-        char c = board[a][b];
-        if (c == board[a + 1][b] && c == board[a + 1][b + 1] && c == board[a][b + 1]) {
-            return true;
-        }
-        return false;
+    public static boolean check(int i, int j) {
+        char c = map[i][j];
+
+        return map[i + 1][j] == c && map[i][j + 1] == c && map[i + 1][j + 1] == c;
     }
 }
