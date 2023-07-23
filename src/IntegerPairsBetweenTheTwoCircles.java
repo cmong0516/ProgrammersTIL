@@ -11,7 +11,7 @@ public class IntegerPairsBetweenTheTwoCircles {
 
         long y1sum,y2sum,side = 0;
 
-        for (int i = 1; i <= r2; i++) {
+        for (int i = 0; i <= r2; i++) {
             long y2 = (long) Math.sqrt(r2x - Math.pow(i, 2));
             long y1 = (long) Math.sqrt(r1x - Math.pow(i, 2));
 
