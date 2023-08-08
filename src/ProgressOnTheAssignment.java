@@ -1,10 +1,8 @@
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 import java.util.Stack;
 
@@ -28,11 +26,11 @@ public class ProgressOnTheAssignment {
         // 과제를 완료했다면 기존에 못한 과제를 한다.
         // 과제를 완료하지 못했다면 우선 시작해야할 과제를 먼저 한다.
 
-        List<String> list = new ArrayList<>();
+        Stack<String> list = new Stack<>();
         int index = 0;
-        int nextIndex = index+1;
+        int nextIndex = 1;
 
-        while (plans.length != index) {
+        while (plans.length != nextIndex) {
             //{과목},{시작시간},{소요시간}
             String[] now = plans[index];
             // 과목이름
@@ -63,14 +61,18 @@ public class ProgressOnTheAssignment {
             }
 
             index++;
+            nextIndex++;
 
         }
 
-        System.out.println("list = " + list);
+        finish.add(plans[plans.length-1][0]);
 
-        System.out.println("finish = " + finish);
+        while (!list.isEmpty()) {
+            String peek = list.pop();
+            finish.add(peek);
+        }
 
 
-        return new String[]{};
+        return finish.toArray(new String[0]);
     }
 }
