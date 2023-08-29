@@ -24,7 +24,7 @@ public class ProgressOnTheAssignment {
 
     public static void main(String[] args){
         String[][] plans = {{"science", "12:40", "50"}, {"music", "12:20", "40"}, {"history", "15:00", "30"}, {"computer", "12:30", "100"}};
-        solution(plans);
+        System.out.println(solution(plans));
     }
 
     public static List<String> solution(String[][] plans){
