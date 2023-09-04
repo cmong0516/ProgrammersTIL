@@ -49,8 +49,6 @@ public class MineralMining {
             }
         });
 
-        System.out.println("list = " + list);
-
         for (int i = 0; i < picks[0]; i++) {
             if (list.isEmpty()) break;
             List<String> curL = list.get(0);
