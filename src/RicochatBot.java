@@ -33,6 +33,7 @@ public class RicochatBot {
         // 시작점 방문
         visited[start[0]][start[1]] = true;
 
+        // 큐 값이 있다면
         while (!queue.isEmpty()) {
             int[] q = queue.poll();
             int y = q[0];
@@ -43,21 +44,30 @@ public class RicochatBot {
                 int nx = x;
                 int ny = y;
 
+
+                // 끝까지 이동
                 while (true) {
+
+                    // 맵 밖으로 나갈시
                     if (ny < 0 || ny >= map.length || nx < 0 || nx >= map[0].length) {
                         break;
                     }
 
+                    // 장애물 만날시 break
                     if (map[ny][nx].equals("D")) {
                         nx -= dx[i];
                         ny -= dy[i];
                         break;
                     }
 
+                    // 그외 상 하 좌 위 움직임
+
                     nx += dx[i];
                     ny += dy[i];
                 }
 
+
+                // 맵 밖으로 나갈경우 직전 위치로 조정.
                 if (ny < 0 || ny >= map.length || nx < 0 || nx >= map[0].length) {
                     if (i == 0) {
                         nx = map[0].length - 1;
@@ -70,9 +80,13 @@ public class RicochatBot {
                     }
                 }
 
+                // 목적지 도착
                 if (map[ny][nx].equals("G")) {
                     return cnt;
                 }
+
+                // 방문하지 않은 곳일경우
+                // 큐에 현재 위치값 , count++ 추가
 
                 if (!visited[ny][nx]) {
                     queue.add(new int[]{ny, nx, cnt+1});
