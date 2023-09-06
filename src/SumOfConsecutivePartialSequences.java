@@ -1,6 +1,3 @@
-import java.util.HashMap;
-import java.util.Map;
-
 public class SumOfConsecutivePartialSequences {
     public static void main(String[] args) {
         solution(new int[]{1, 2, 3, 4, 5}, 7);
