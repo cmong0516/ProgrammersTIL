@@ -25,8 +25,17 @@ public class WorkPark {
 
     public int[] move(String[] routes) {
 
+        for (String route : routes) {
+            String[] split = route.split(" ");
+            String direction = split[0];
+            int distance = Integer.parseInt(split[1]);
 
+        }
 
         return null;
+    }
+
+    public boolean isOverMap(String direction, int distance) {
+        return true;
     }
 }
