@@ -1,0 +1,15 @@
+
+s	java:S135D"YReduce the total number of break and continue statements in this loop to use at most one.( à÷Íüÿÿÿÿ
+0
+java:S1220""Move this file to a named package.
+k
+java:S1149/"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(ÚŒßàıÿÿÿÿ
+E	java:S106"+Replace this use of System.out by a logger.(£ç¿úÿÿÿÿ
+h
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 28 to the 15 allowed.(·ô²İ
+Z
+java:S1854g"?Remove this useless assignment to local variable "currentTime".(³û¾¥ûÿÿÿÿ
+1
+java:S3626K"Remove this redundant jump.(ÉŠ©ƒ
+1
+java:S3626Y"Remove this redundant jump.(ÉŠ©ƒ

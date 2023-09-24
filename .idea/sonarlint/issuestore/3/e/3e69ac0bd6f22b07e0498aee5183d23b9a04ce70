@@ -1,0 +1,17 @@
+
+c
+java:S1192"HDefine a constant instead of duplicating this literal "classic" 3 times.(ğåÂİúÿÿÿÿ
+†
+java:S13191"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¾Ó¢ª
+e	java:S1176"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è”„9
+k	java:S1178"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªì“„ÿÿÿÿÿ
+0
+java:S1220""Move this file to a named package.
+t
+java:S3008"YRename this field "genres_ordered" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥¿¹ıÿÿÿÿ
+Y
+java:S1854%">Remove this useless assignment to local variable "sortGenres".(şËı¶ÿÿÿÿÿ
+J
+java:S1481%"/Remove this unused "sortGenres" local variable.(şËı¶ÿÿÿÿÿ
+J
+java:S28647"4Iterate over the "entrySet" instead of the "keySet".(ÌØœó

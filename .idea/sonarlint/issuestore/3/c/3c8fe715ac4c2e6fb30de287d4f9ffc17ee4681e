@@ -1,0 +1,19 @@
+
+z	java:S135"YReduce the total number of break and continue statements in this loop to use at most one.(÷öÜşÿÿÿÿ8¸ìàª1
+z	java:S1351"YReduce the total number of break and continue statements in this loop to use at most one.(÷öÜşÿÿÿÿ8¸ìàª1
+z	java:S135C"YReduce the total number of break and continue statements in this loop to use at most one.(÷öÜşÿÿÿÿ8¸ìàª1
+z	java:S135U"YReduce the total number of break and continue statements in this loop to use at most one.(÷öÜşÿÿÿÿ8¹ìàª1
+7
+java:S1220""Move this file to a named package.8¹ìàª1
+t
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 50 to the 15 allowed.(–ï£•ÿÿÿÿÿ8Ùíàª1
+i
+java:S1871%"LThis branch's code block is the same as the block for the branch on line 32.(øÖ¹8Ûíàª1
+i
+java:S18717"LThis branch's code block is the same as the block for the branch on line 51.(øÖ¹8Üíàª1
+i
+java:S1871I"LThis branch's code block is the same as the block for the branch on line 69.(øÖ¹8İíàª1
+i
+java:S1871["LThis branch's code block is the same as the block for the branch on line 87.(øÖ¹8İíàª1
+è
+java:S6541"ÅA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 86 to 64, Complexity from 22 to 14, Nesting Level from 4 to 2, Number of Variables from 21 to 6.(–ï£•ÿÿÿÿÿ8ßíàª1

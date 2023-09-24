@@ -1,0 +1,12 @@
+
+0
+java:S1220""Move this file to a named package.
+M
+java:S1854B"7Remove this useless assignment to local variable "map".(—¿¹€
+>
+java:S1481B"(Remove this unused "map" local variable.(—¿¹€
+C	java:S108D")Either remove or fill this block of code.(‹‡ìˆþÿÿÿÿ
+T
+java:S1128"9Remove this unused import 'java.awt.image.ImageProducer'.(ô³¸Ûüÿÿÿÿ
+H
+java:S1128"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ

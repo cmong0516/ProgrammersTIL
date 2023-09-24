@@ -1,3 +1,27 @@
 
 F
 src/BiggestNumber.java,f/7/f780d9a90786f19f5187208afce1cef8ca76171f
+B
+src/BestAlbum.java,3/e/3e69ac0bd6f22b07e0498aee5183d23b9a04ce70
+Y
+)src/IntegerPairsBetweenTheTwoCircles.java,4/b/4b1506c4403536ba8e4ab2c1e3e05f20afb821eb
+Y
+)src/SumOfConsecutivePartialSequences.java,0/6/06de77421a207e383d45ccf5b05d3417529c5663
+G
+src/DiskController.java,c/9/c9f64e0ef2ece0f333eced545e0e45babcc427a5
+I
+src/FriendsBlockPrac.java,d/2/d2b4fce3ad24f81b78b48a56ce302cb62cb5c9e8
+H
+src/InterceptSystem.java,f/c/fc3e1c6017f46b6ac121d5d465e485ca10c5796d
+P
+ src/ProgressOnTheAssignment.java,6/6/667d5ccca5d3b8cc7bf2f3a718421fd97f77e0fd
+F
+src/ProgrammersTIL.iml,7/1/71e2d39b8f0836cfe29ea58e315f06571c74aa6a
+F
+src/MineralMining.java,1/7/179c8c6639f81b0ea66a033445558279466ee47e
+D
+src/RicochatBot.java,c/0/c03deb43c1d5a4df43f1089f0f03e387157b78c8
+A
+src/WorkPark.java,3/c/3c8fe715ac4c2e6fb30de287d4f9ffc17ee4681e
+J
+src/PracticeBilliards.java,0/a/0a3a9f094a0beed93f5d70042ce881afe81d5ab1

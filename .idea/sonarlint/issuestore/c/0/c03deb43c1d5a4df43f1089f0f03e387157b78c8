@@ -1,0 +1,10 @@
+
+s	java:S1351"YReduce the total number of break and continue statements in this loop to use at most one.(οÿÿÿÿÿ
+0
+java:S1220""Move this file to a named package.
+E	java:S106"+Replace this use of System.out by a logger.(β§Κ€ϊÿÿÿÿ
+g
+java:S3776
+"RRefactor this method to reduce its Cognitive Complexity from 38 to the 15 allowed.(³τυ,
+A
+java:S1481"+Remove this unused "answer" local variable.(ενΆι
