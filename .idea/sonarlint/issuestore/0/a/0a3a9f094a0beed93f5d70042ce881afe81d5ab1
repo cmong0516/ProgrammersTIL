@@ -1,7 +1,9 @@
 
 7
 java:S1220""Move this file to a named package.8ßªžàª1
-V
-java:S3400"9Remove this method and declare a constant for this value.(”·³›8¡É§àª1
-i
-java:S1172"LRemove these unused method parameters "m", "n", "startX", "startY", "balls".(è³œ¿8¡É§àª1
+b
+java:S21845"ECast one of the operands of this subtraction operation to a "double".(Ü‡‡È8ŒÓª¡­1
+b
+java:S21845"ECast one of the operands of this subtraction operation to a "double".(Ü‡‡È8ŒÓª¡­1
+A
+java:S16599"Declare "y" on a separate line.(¡Ê²‘þÿÿÿÿ8žÓª¡­1
