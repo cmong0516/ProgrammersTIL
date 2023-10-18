@@ -1,6 +1,6 @@
 
 
-public class theoremDesktop {
+public class TheoremDesktop {
 
     static char[][] arr;
 
