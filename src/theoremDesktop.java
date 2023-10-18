@@ -1,4 +1,4 @@
-import java.util.Arrays;
+
 
 public class theoremDesktop {
 
@@ -22,9 +22,9 @@ public class theoremDesktop {
             arr[i] = wallpaper[i].toCharArray();
         }
 
-        for (char[] chars : arr) {
-            System.out.println("chars = " + Arrays.toString(chars));
-        }
+//        for (char[] chars : arr) {
+//            System.out.println("chars = " + Arrays.toString(chars));
+//        }
 
         for (int i = 0; i < wallpaper.length; i++) {
             for (int j = 0; j < wallpaper[0].length(); j++) {
@@ -39,13 +39,16 @@ public class theoremDesktop {
 
                     // 가장 작은 j, 가장 작은 i, 가장큰 i+1 , 가장큰 j+1
 
-                    if (mini > i) {
-                        mini = i;
+                    if (minj > j) {
                         minj = j;
                     }
-
+                    if (mini > i) {
+                        mini = i;
+                    }
                     if (maxi < i) {
                         maxi = i;
+                    }
+                    if (maxj < j) {
                         maxj = j;
                     }
 
@@ -53,17 +56,17 @@ public class theoremDesktop {
             }
         }
 
-        System.out.println("mini = " + mini);
-        System.out.println("minj = " + minj);
-        System.out.println("maxi = " + maxi);
-        System.out.println("maxj = " + maxj);
+//        System.out.println("mini = " + mini);
+//        System.out.println("minj = " + minj);
+//        System.out.println("maxi = " + maxi);
+//        System.out.println("maxj = " + maxj);
 
         answer[0] = mini;
         answer[1] = minj;
         answer[2] = maxi+1;
         answer[3] = maxj+1;
 
-        System.out.println("answer = " + Arrays.toString(answer));
+//        System.out.println("answer = " + Arrays.toString(answer));
 
         return answer;
     }
