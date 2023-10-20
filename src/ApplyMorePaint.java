@@ -4,8 +4,6 @@ public class ApplyMorePaint {
     }
 
     public static int solution(int n, int m, int[] section) {
-        int answer = 0;
-
         // 길이가 n 인 벽
         // 1 미터씩 n 개의 구역
 
