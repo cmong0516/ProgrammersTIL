@@ -1,0 +1,11 @@
+
+7
+java:S1220""Move this file to a named package.8ÄÆøî³1
+o
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(øÊ¾ª8åÔ´1
+]	java:S125"<This block of commented-out lines of code should be removed.(ë…“îøÿÿÿÿ8çâŸ´1
+L	java:S106 "+Replace this use of System.out by a logger.(Ğö¶üÿÿÿÿ8ÅÇøî³1
+L	java:S106!"+Replace this use of System.out by a logger.(°Áƒ‹ûÿÿÿÿ8úÔüî³1
+L	java:S106""+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8úÔüî³1
+X	java:S125;"<This block of commented-out lines of code should be removed.(·ÿ‚¢8Æ˜Ÿ´1
+]	java:S125E"<This block of commented-out lines of code should be removed.(„¥ÜÊùÿÿÿÿ8ö¹Ÿ´1
