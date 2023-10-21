@@ -27,3 +27,5 @@ J
 src/PracticeBilliards.java,0/a/0a3a9f094a0beed93f5d70042ce881afe81d5ab1
 G
 src/TheoremDesktop.java,8/a/8aac54c602eeb586b1465be917fd62ababedd9ea
+G
+src/ApplyMorePaint.java,4/2/4242fa8623d5a3c8d40ea6c28ba40c8c67479b81
