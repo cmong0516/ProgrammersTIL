@@ -29,3 +29,5 @@ G
 src/TheoremDesktop.java,8/a/8aac54c602eeb586b1465be917fd62ababedd9ea
 G
 src/ApplyMorePaint.java,4/2/4242fa8623d5a3c8d40ea6c28ba40c8c67479b81
+G
+src/NoGoodKeyboard.java,8/a/8a91300c7d0ab1f37423806d2ee5f8a69d36ff2d
