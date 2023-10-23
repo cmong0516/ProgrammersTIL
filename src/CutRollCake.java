@@ -1,6 +1,5 @@
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Map;
+import java.util.HashMap;
 
 public class CutRollCake {
     public static void main(String[] args) {
@@ -10,22 +9,23 @@ public class CutRollCake {
     public static int solution(int[] topping) {
         int answer = 0;
 
-        for (int i = 1; i < topping.length; i++) {
-            int[] arr1 = Arrays.copyOfRange(topping, 0, i);
-            int[] arr2 = Arrays.copyOfRange(topping, i, topping.length);
+        Map<Integer, Integer> map1 = new HashMap<>();
+        Map<Integer, Integer> map2 = new HashMap<>();
 
-            Set<Integer> set1 = new HashSet<>();
-            Set<Integer> set2 = new HashSet<>();
+        for (int i : topping) {
+            map2.put(i, map2.getOrDefault(i, 0) + 1);
+        }
 
-            for (int i1 : arr1) {
-                set1.add(i1);
+        for (int i : topping) {
+            map1.put(i, map1.getOrDefault(i, 0) + 1);
+
+            if (map2.get(i) - 1 == 0) {
+                map2.remove(i);
+            } else {
+                map2.put(i, map2.get(i) - 1);
             }
 
-            for (int i1 : arr2) {
-                set2.add(i1);
-            }
-
-            if (set1.size() == set2.size()) {
+            if (map1.size() == map2.size()) {
                 answer++;
             }
         }
