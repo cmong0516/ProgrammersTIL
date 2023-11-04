@@ -35,3 +35,17 @@ D
 src/CutRollCake.java,d/4/d40ab40b5160dbdee52299f66a623cde3b792208
 B
 src/ParcelBox.java,b/1/b1f55a7e10c7b153302dae19794a1811db00c988
+H
+src/QuadCompression.java,4/a/4a9eb3eea34f17a6f2e9d30c8dc9361c60bb9ce3
+H
+src/FindPrimeNumber.java,f/3/f387b1856a37eb6778fc303ce0ea15f4d4493516
+D
+src/PrintString.java,1/e/1e1f3fe1bfa9735e3d80a7990d5f90b2bc436179
+@
+src/Printab.java,e/a/ea0dcb49e7622572522db7df435f350713d84044
+D
+src/PrintRepeat.java,0/e/0ec2f4b3fca87fbd22f68cce304d055b118e958d
+D
+src/TripodSnail.java,d/7/d7fd9524b9de066535d89cc048a5c2c38fdd87b4
+F
+src/MakeBigNumber.java,0/5/0577e439c359bb20f09b73bc42e6f83280cd2130
