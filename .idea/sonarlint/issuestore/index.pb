@@ -49,3 +49,9 @@ D
 src/TripodSnail.java,d/7/d7fd9524b9de066535d89cc048a5c2c38fdd87b4
 F
 src/MakeBigNumber.java,0/5/0577e439c359bb20f09b73bc42e6f83280cd2130
+I
+src/MakeQueueSumSame.java,0/7/07568ceef10e0c460048d98096745dd655366190
+D
+src/MenuRenewal.java,0/e/0e9b550b894966ff6e39c68992a159b8eb601bc4
+D
+src/OilDrilling.java,6/f/6fba0c3dea55bd7fa8b7036377b08c21bdb3e558
