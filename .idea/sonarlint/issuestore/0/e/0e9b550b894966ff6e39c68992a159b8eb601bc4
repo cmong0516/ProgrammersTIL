@@ -1,7 +1,10 @@
 
-{
-java:S1488"^Immediately return this expression instead of assigning it to the temporary variable "answer".(ßºú¤8ÔÛ”ªÊ1
 7
-java:S1220""Move this file to a named package.8ÕÛ”ªÊ1
-[
-java:S1172"9Remove these unused method parameters "orders", "course".(ó×Øñÿÿÿÿÿ8ØÛ”ªÊ1
+java:S1220""Move this file to a named package.8Æ‹‰ºÏ1
+t
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(ó×Øñÿÿÿÿÿ8ÒÑ¥ºÏ1
+V
+java:S2864"4Iterate over the "entrySet" instead of the "keySet".(½Ö²’ûÿÿÿÿ8ÓÑ¥ºÏ1
+L	java:S1069"+Replace this use of System.out by a logger.(¸·ï®úÿÿÿÿ8äùçÙÏ1
+L	java:S106:"+Replace this use of System.out by a logger.(ƒÑ×şşÿÿÿÿ8äùçÙÏ1
+L	java:S106;"+Replace this use of System.out by a logger.(‹Ê–ùÿÿÿÿ8åùçÙÏ1

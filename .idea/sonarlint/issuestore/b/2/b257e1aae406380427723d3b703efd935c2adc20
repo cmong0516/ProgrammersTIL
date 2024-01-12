@@ -1,0 +1,9 @@
+
+7
+java:S1220""Move this file to a named package.8ÒÍğ×Ï1
+V
+java:S1854"9Remove this useless assignment to local variable "aDesk".(‰•Ì³8×Íğ×Ï1
+G
+java:S1481"*Remove this unused "aDesk" local variable.(‰•Ì³8ØÍğ×Ï1
+F
+java:S1068")Remove this unused "wheel" private field.(ãÚïÏ8ØÍğ×Ï1
