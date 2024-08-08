@@ -67,3 +67,13 @@ M
 src/MultiplicationMatrix.java,7/7/7725d8eccb89a4f9c5a5908e5a2fe27d91af94a2
 P
  src/SplittingPowerGridInTwo.java,6/9/69e0124daeddc909ecb14fdf6bac68935f895baf
+F
+src/ChickenCoupon.java,5/c/5c02e0f21d859a43409429665363e5f714c1ab95
+W
+'src/CharactersThatAppearedOnlyOnce.java,6/d/6d57404a89782562d1186ed7f4c7b0a4cdd8dfa5
+@
+src/Costume.java,2/1/2155b2085e351eb879e33206170da3fc27bc9bf8
+A
+src/ControlZ.java,8/d/8d60770337bc8c6f5b2dee18aa0a592a36973ee1
+E
+src/FindDivisors.java,a/c/ac5774d3571d7a2da70f1bb47bf81fed46a37f51
